@@ -18,6 +18,7 @@ function Box({id, height, width, backgroundColor, removeBox}) {
     removeBox(id);
   }
 
+  //make a variable called style and make style=styleObject
   return ( 
     <div className="Box">
       <div className="Box-formatted"
@@ -26,6 +27,7 @@ function Box({id, height, width, backgroundColor, removeBox}) {
             width: `${width}px`, 
             backgroundColor: `${backgroundColor}` }}>
       </div>
+      <br/>
       <button onClick={handleRemoveBox}>X</button>
     </div>
   )

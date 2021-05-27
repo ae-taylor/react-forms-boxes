@@ -16,26 +16,24 @@ function BoxList() {
   const [boxes, setBoxes] = useState([]);
 
   /** remove box from list. */
-  function removeBox(removeId) {
-    setBoxes(boxes => [...boxes].filter(box => box.id !== removeId));
+  function removeBox(id) {
+    setBoxes(boxes => [...boxes].filter(box => box.id !== id));
   }
 
   function renderBoxes() {
-    return (
-          <div>
-           { boxes.map(box => (
+    return boxes.map(box => (
                 <Box key={box.id}
                 id={box.id}
                 height={box.height}
                 width={box.width}
                 backgroundColor={box.backgroundColor} 
                 removeBox={removeBox}/>
-          )) }
-          </div>
+          )
     );
   }
 
    /** Add new box object to list. */
+   //TODO destructure properties from box to make a box out of only the properties that we will use, validate!
    function addBox(box) {
     let newBox = { ...box, id: uuid() };
     setBoxes(boxes => [...boxes, newBox]);
@@ -44,7 +42,7 @@ function BoxList() {
   return (
     <div className="BoxList">
       <NewBoxForm addBox={addBox}/>
-      {renderBoxes()}
+      <div>{renderBoxes()}</div>
     </div>
   )
 

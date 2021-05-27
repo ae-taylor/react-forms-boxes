@@ -10,15 +10,15 @@ import React, { useState } from "react";
  */
 
 function NewBoxForm({ addBox }) {
-  const initialState = { height: "", width: "", backgroundColor: "" };
-  const [formData, setFormData] = useState(initialState);
+  const INITIAL_STATE = { height: "", width: "", backgroundColor: "" };
+  const [formData, setFormData] = useState(INITIAL_STATE);
 
   /** Send {height, width, backgroundColor} to parent
    *    & clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
     addBox(formData);
-    setFormData(initialState);
+    setFormData(INITIAL_STATE);
   }
 
   /** Update local state w/curr state of input elem */
